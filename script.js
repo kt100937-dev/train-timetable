@@ -50,11 +50,15 @@ const timeTypeSelect = document.getElementById('time-type');
 const searchBtn = document.getElementById('search-btn');
 const resultsDiv = document.getElementById('results');
 const timetableDiv = document.getElementById('timetable');
+const qrBtn = document.getElementById('qr-btn');
+const qrCodeDiv = document.getElementById('qr-code');
+const qrCanvas = document.getElementById('qr-canvas');
 
 // イベントリスナー
 lineSelect.addEventListener('change', handleLineChange);
 stationSelect.addEventListener('change', handleStationChange);
 searchBtn.addEventListener('click', handleSearch);
+qrBtn.addEventListener('click', handleQRGenerate);
 
 function handleLineChange() {
     const selectedLine = lineSelect.value;
@@ -219,4 +223,28 @@ function displayResults(line, station, direction, timetable) {
 
     // 結果までスクロール
     resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function handleQRGenerate() {
+    // 既存のQRコードをクリア
+    qrCanvas.innerHTML = '';
+
+    // 現在のページURLを取得
+    const currentURL = window.location.href;
+
+    // QRコードを生成
+    new QRCode(qrCanvas, {
+        text: currentURL,
+        width: 200,
+        height: 200,
+        colorDark: '#667eea',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // QRコードエリアを表示
+    qrCodeDiv.style.display = 'block';
+
+    // QRコードまでスクロール
+    qrCodeDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

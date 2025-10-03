@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>電車時刻表検索</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -57,6 +58,12 @@
             <div id="results" class="results-section" style="display: none;">
                 <h2>検索結果</h2>
                 <div id="timetable"></div>
+                <button id="qr-btn" class="btn-secondary">このページのQRコードを生成</button>
+                <div id="qr-code" style="display: none;">
+                    <h3>QRコード</h3>
+                    <div id="qr-canvas"></div>
+                    <p class="qr-info">スマートフォンで読み取ってこのページにアクセスできます</p>
+                </div>
             </div>
         </main>
 
