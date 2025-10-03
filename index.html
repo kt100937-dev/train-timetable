@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>電車時刻表検索</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚃 電車時刻表検索</h1>
+        </header>
+
+        <main>
+            <div class="search-section">
+                <h2>路線・駅を選択</h2>
+                <div class="form-group">
+                    <label for="line">路線</label>
+                    <select id="line">
+                        <option value="">路線を選択してください</option>
+                        <option value="yamanote">山手線</option>
+                        <option value="chuo">中央線</option>
+                        <option value="sobu">総武線</option>
+                        <option value="keihin-tohoku">京浜東北線</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="station">駅</label>
+                    <select id="station" disabled>
+                        <option value="">駅を選択してください</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="direction">方面</label>
+                    <select id="direction" disabled>
+                        <option value="">方面を選択してください</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="time-type">時刻</label>
+                    <select id="time-type">
+                        <option value="now">現在時刻から</option>
+                        <option value="weekday-morning">平日朝（6:00-9:00）</option>
+                        <option value="weekday-day">平日日中（9:00-17:00）</option>
+                        <option value="weekday-evening">平日夕方（17:00-21:00）</option>
+                        <option value="holiday">休日</option>
+                    </select>
+                </div>
+
+                <button id="search-btn" class="btn-primary" disabled>検索</button>
+            </div>
+
+            <div id="results" class="results-section" style="display: none;">
+                <h2>検索結果</h2>
+                <div id="timetable"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>※ このサイトはデモ版です。実際の時刻表とは異なる場合があります。</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
